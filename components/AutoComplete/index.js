@@ -4,10 +4,13 @@ import Input from "../Input";
 import Suggestions from "../Suggestions";
 
 const AutoComplete = () => {
-  // we control the input's value
   const [value, setValue] = React.useState("");
-  // The array of string we display under the input
   const [list, setList] = React.useState([]);
+
+  // new hook useTransition !
+  const [startTransition] = React.unstable_useTransition({
+    timeoutMs: 10000,
+  });
 
   React.useEffect(() => {
     let newList = [];
@@ -18,8 +21,10 @@ const AutoComplete = () => {
       });
     }
 
-    setList(newList);
-  }, [value, setList]);
+    startTransition(() => {
+      setList(newList);
+    });
+  }, [value, setList, startTransition]);
 
   const handleInputChange = (e) => {
     e.preventDefault();
