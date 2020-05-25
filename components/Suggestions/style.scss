@@ -1,0 +1,25 @@
+.suggestions {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+  margin: 1em 0;
+}
+
+.suggestions__item {
+  border: 1px solid var(--border-color);
+  padding: 0.5em 0.8em;
+}
+
+.suggestions__item:first-child {
+  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+}
+
+.suggestions__item:last-child {
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.suggestions__item + .suggestions__item {
+  border-top: 0;
+}

@@ -1,11 +1,11 @@
 import React from "react";
 
-import Hello from "./components/Hello";
+import AutoComplete from "./components/AutoComplete";
 import Container from "./components/Container";
 
 const App = () => (
   <Container>
-    <Hello name="Loïc" />
+    <AutoComplete />
   </Container>
 );
 
