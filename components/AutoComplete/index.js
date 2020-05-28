@@ -10,9 +10,14 @@ const AutoComplete = () => {
   const [list, setList] = React.useState([]);
 
   React.useEffect(() => {
-    const newList = [...Array(100)].map((item, index) => {
-      return `${value} - ${index}`;
-    });
+    let newList = [];
+
+    if (value) {
+      newList = [...Array(100)].map((item, index) => {
+        return `${value} - ${index}`;
+      });
+    }
+
     setList(newList);
   }, [value, setList]);
 
