@@ -1,15 +1,15 @@
 import React from "react";
 
-import getImageRessource from "../../utils/getImageRessource";
+import getImageResource from "../../utils/getImageResource";
 
 import "./style.scss";
 
-const imageRessource = getImageRessource(
+const imageResource = getImageResource(
   "https://media.disneylandparis.com/d4th/fr-fr/images/n014938_2020jun11_phantom-manor_16-9_tcm808-157081.jpg?w=448"
 );
 
 const PhantomManorThumbnail = () => {
-  const image = imageRessource.read();
+  const image = imageResource.read();
 
   return (
     <div className="pm-thumbnail" style={{ backgroundImage: `url(${image})` }}>
