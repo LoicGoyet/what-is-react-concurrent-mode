@@ -5,7 +5,7 @@ import Suggestions from "../Suggestions";
 
 const AutoComplete = () => {
   // we control the input's value
-  const [value, setValue] = React.useState("hello");
+  const [value, setValue] = React.useState("");
   // The array of string we display under the input
   const [list, setList] = React.useState([]);
 
