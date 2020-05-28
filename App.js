@@ -1,11 +1,11 @@
 import React from "react";
 
-import Hello from "./components/Hello";
+import Carousel from "./components/Carousel";
 import Container from "./components/Container";
 
 const App = () => (
   <Container>
-    <Hello name="Loïc" />
+    <Carousel name="Loïc" />
   </Container>
 );
 

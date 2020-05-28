@@ -1,0 +1,39 @@
+.sm-thumbnail {
+  height: 10rem;
+  background-image: url('https://media.disneylandparis.com/d4th/fr-fr/images/n018015_2050jan01_space-mountain_16-9_tcm808-159759.jpg?w=1850');
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  overflow: hidden;
+}
+
+@keyframes deposein {
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.sm-thumbnail__label {
+  --skew: -15deg;
+  color: #ffffff;
+  font-size: 2em;
+  text-shadow: 1px 1px black;
+  transform: scale(1);
+  font-weight: bold;
+  animation: 10s ease-out deposein;
+  will-change: transform;
+}

@@ -1,0 +1,37 @@
+.btm-thumbnail {
+  height: 10rem;
+  background-image: url('https://media.disneylandparis.com/d4th/fr-fr/images/n017798_2050jan01_big-thunder-mountain_16-9_tcm808-159546.jpg?w=1960');
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  display: flex;
+  user-select: none;
+  overflow: hidden;
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateX(-10%) skewX(-10deg) rotate(-10deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0%) skewX(-15deg) rotate(-15deg);
+  }
+}
+
+.btm-thumbnail__label {
+  --skew: -15deg;
+  color: #ffffff;
+  font-size: 2em;
+  text-shadow: 1px 1px black;
+  transform: skewX(var(--skew)) rotate(var(--skew));
+  font-weight: bold;
+  animation: 10s ease-out slidein;
+  will-change: transform;
+}
