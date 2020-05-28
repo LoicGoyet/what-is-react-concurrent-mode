@@ -1,11 +1,11 @@
 import React from "react";
 
-import Hello from "./components/Hello";
+import ImageGrid from "./components/ImageGrid";
 import Container from "./components/Container";
 
 const App = () => (
   <Container>
-    <Hello name="Loïc" />
+    <ImageGrid name="Loïc" />
   </Container>
 );
 
