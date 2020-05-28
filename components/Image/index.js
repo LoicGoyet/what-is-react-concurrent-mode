@@ -3,12 +3,16 @@ import PropTypes from "prop-types";
 
 import "./style.scss";
 
-const Image = ({ src }) => {
+const Image = ({ resource }) => {
+  const src = resource.read();
+
   return <img className="image" src={src} />;
 };
 
 Image.propTypes = {
-  src: PropTypes.string.isRequired,
+  resource: PropTypes.shape({
+    read: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default Image;
