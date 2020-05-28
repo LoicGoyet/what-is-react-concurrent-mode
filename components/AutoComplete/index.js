@@ -9,24 +9,22 @@ const AutoComplete = () => {
   // The array of string we display under the input
   const [list, setList] = React.useState([]);
 
-  // new hook useTransition !
-  const [startTransition] = React.unstable_useTransition({
+  // new hook useDeferredValue !
+  const deferredValue = React.unstable_useDeferredValue(value, {
     timeoutMs: 10000,
   });
 
   React.useEffect(() => {
     let newList = [];
 
-    if (value) {
+    if (deferredValue) {
       newList = [...Array(100)].map((item, index) => {
-        return `${value} - ${index}`;
+        return `${deferredValue} - ${index}`;
       });
     }
 
-    startTransition(() => {
-      setList(newList);
-    });
-  }, [value, setList, startTransition]);
+    setList(newList);
+  }, [deferredValue, setList]);
 
   const handleInputChange = (e) => {
     e.preventDefault();
