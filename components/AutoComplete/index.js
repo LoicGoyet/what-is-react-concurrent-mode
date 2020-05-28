@@ -9,14 +9,16 @@ const AutoComplete = () => {
   // The array of string we display under the input
   const [list, setList] = React.useState([]);
 
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    setValue(e.target.value);
-
+  React.useEffect(() => {
     const newList = [...Array(100)].map((item, index) => {
       return `${value} - ${index}`;
     });
     setList(newList);
+  }, [value, setList]);
+
+  const handleInputChange = (e) => {
+    e.preventDefault();
+    setValue(e.target.value);
   };
 
   return (
