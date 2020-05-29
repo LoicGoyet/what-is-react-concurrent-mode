@@ -1,6 +1,6 @@
 # react-concurrent-mode-presentation-snippets
 
-This repo regroups all the code snippets for my presentation about React's concurrent mode. The presentation is [available here](https://docs.google.com/presentation/d/11NAeakiszE1ypTb6IU0o7vWodXsy6YO04Qsrn9DNyqE/edit?usp=sharing)
+This repo regroups all the code snippets for my presentation about React's concurrent mode. The presentation is [available here](https://docs.google.com/presentation/d/11NAeakiszE1ypTb6IU0o7vWodXsy6YO04Qsrn9DNyqE)
 
 ## How this repository is organized
 
