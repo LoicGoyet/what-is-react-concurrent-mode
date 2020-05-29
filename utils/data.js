@@ -16,7 +16,7 @@ export const fetchPlayersList = async () => {
 
 export const fetchPlayerStats = async (playerId) => {
   const response = await fetch(
-    `https://free-nba.p.rapidapi.com/stats?page=0&per_page=5&player_ids[]=${playerId}`,
+    `https://free-nba.p.rapidapi.com/stats?page=0&per_page=3&player_ids[]=${playerId}`,
     {
       method: "GET",
       headers: {
