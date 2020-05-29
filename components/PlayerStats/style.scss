@@ -1,0 +1,56 @@
+.player-stats {
+  padding: 0.25em;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.player-stats__game {
+  margin: 2rem;
+}
+
+.player-stats__game + .player-stats__game {
+  border-top: 1px solid var(--border-color);
+  padding-top: 2em;
+}
+
+.player-stats__game-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.25em;
+}
+
+.player-stats__game-body {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.player-stats__stat-var {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.player-stats__game-header .player-stats__stat-var {
+  font-size: 1em;
+  font-weight: normal;
+  display: flex;
+  align-items: baseline;
+}
+
+.player-stats__stat-label {
+  display: block;
+  font-size: 0.5em;
+  font-weight: normal;
+}
+
+.player-stats__dnp {
+  font-style: italic;
+}
+
+.player-stats__no-games {
+  font-style: italic;
+  text-align: center;
+}

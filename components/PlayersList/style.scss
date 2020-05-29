@@ -1,0 +1,38 @@
+.players-list {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 1rem
+}
+
+.players-list__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player-list__player-btn {
+  display: flex;
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 0.5rem 0.25rem;
+  width: 100%;
+  user-select: none;
+}
+
+.player-list__player-btn--selected {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.players-list__stat-heading {
+  margin-top: 0;
+}
+
+.player-list__stat-placeholder {
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  text-align: center;
+}

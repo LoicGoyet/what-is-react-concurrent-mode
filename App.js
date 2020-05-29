@@ -1,11 +1,12 @@
 import React from "react";
 
-import Hello from "./components/Hello";
+import PlayersList from "./components/PlayersList";
 import Container from "./components/Container";
 
 const App = () => (
   <Container>
-    <Hello name="Loïc" />
+    <h1>First NBA games</h1>
+    <PlayersList />
   </Container>
 );
 
