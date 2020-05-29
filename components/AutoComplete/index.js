@@ -9,6 +9,7 @@ const AutoComplete = () => {
   // The array of string we display under the input
   const [list, setList] = React.useState([]);
 
+  // set new list state when value updates
   React.useEffect(() => {
     let newList = [];
 
