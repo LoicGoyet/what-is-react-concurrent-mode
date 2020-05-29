@@ -1,29 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Loading from "../Loading";
-import { fetchPlayerStats } from "../../utils/data";
 import { getFormatedDate } from "../../utils/date";
 import "./style.scss";
 
-const PlayerStats = ({ id }) => {
-  const [games, setGames] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const games = await fetchPlayerStats(id);
-      setGames(games);
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, [id, setIsLoading, setGames, setIsLoading]);
-
-  if (isLoading) {
-    return <Loading />;
-  }
+const PlayerStats = ({ resource }) => {
+  const games = resource.read();
 
   return (
     <div className="player-stats">
@@ -75,7 +57,9 @@ const PlayerStats = ({ id }) => {
 };
 
 PlayerStats.propTypes = {
-  id: PropTypes.number.isRequired,
+  resource: PropTypes.shape({
+    read: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default PlayerStats;

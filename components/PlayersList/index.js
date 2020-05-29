@@ -1,34 +1,31 @@
-import React from "react";
+import React, { Suspense } from "react";
 
-import Loading from "../Loading";
 import PlayerStats from "../PlayerStats";
-import { fetchPlayersList } from "../../utils/data";
+import Loading from "../Loading";
+import { fetchPlayersList, fetchPlayerStats } from "../../utils/data";
 import "./style.scss";
+import createResource from "../../utils/createResource";
+
+const APIResource = createResource(() => fetchPlayersList());
 
 const PlayersList = () => {
-  const [players, setPlayers] = React.useState([]);
+  const players = APIResource.read();
   const [selectedPlayer, setSelectedPlayer] = React.useState(null);
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const players = await fetchPlayersList();
-      setPlayers(players);
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, []);
+  const [startTransition] = React.unstable_useTransition({
+    timeoutMs: 500,
+  });
 
   const handlePlayerClick = (player) => (e) => {
     e.preventDefault();
-    setSelectedPlayer(player);
-  };
 
-  if (isLoading) {
-    return <Loading />;
-  }
+    startTransition(() => {
+      setSelectedPlayer({
+        id: player.id,
+        fullName: `${player.first_name} ${player.last_name}`,
+        resource: createResource(() => fetchPlayerStats(player.id)),
+      });
+    });
+  };
 
   return (
     <div className="players-list">
@@ -56,12 +53,12 @@ const PlayersList = () => {
         )}
 
         {!!selectedPlayer && (
-          <React.Fragment>
+          <Suspense fallback={<Loading />}>
             <h2 className="players-list__stat-heading">
-              {selectedPlayer.first_name} {selectedPlayer.last_name}
+              {selectedPlayer.fullName}
             </h2>
-            <PlayerStats id={selectedPlayer.id} />
-          </React.Fragment>
+            <PlayerStats resource={selectedPlayer.resource} />
+          </Suspense>
         )}
       </section>
     </div>
